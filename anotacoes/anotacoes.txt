@@ -1,0 +1,12 @@
+Modulo 1: Introdução e uso do classpath
+
+* javac -d <diretorio_que_ira_conter_os_arquivos_compilados> -sourcepath <diretorio_onde_encontrar_os_arquivos_java> path_do_arquivo_a_ser_compilado
+* java -cp <diretorio_onde_encontrar_as_classes>:<proximo_diretorio_onde_encontrar_as_classes> <path_da_classe_a_ser_executada> (no windows eh ; ao inves de :)
+
+Obs: As classes core do java são carregadas pelo BootstrapLoader e estão no rt.jar que fica dentro da instalacao do java. Existe tambem na instalacao do java um diretorio chamado ext, onde ficam as extensoes, ou seja, classes que nao fazem parte do core do java mas que podem ser usadas por qqr aplicacao pois fazem parte da extensao, essas classes tambem sao carregadas automaticamente. Ou seja, podemos jogar um jar contando nossas classes nesse diretorio e tudo ira compilar e rodar corretamente pois essas classes serao sim carregadas. Claro que isso nao eh uma boa pratica mas serve para demonstrar o mecanismo de carregamento do java.
+
+* java -cp <diretorio_que_ira_conter_os_arquivos_compilados> -Djava.ext.dirs=<diretorio_onde_encontrar_as_classes_de_extesao> <classe_a_executar> -> essa flag -Djava.ext.dirs nos permite especificar o diretorio das classes de extesao.
+
+Posso tambem sobreescrever a localizacao das classes de bootstrap, para isso uso o comando abaixo:
+
+* java -cp <diretorio_que_ira_conter_os_arqs_compilados> -Xbootclasspath <diretorio_das_classes_a_serem_inicializadas_pelo_bootstrap_loader>
