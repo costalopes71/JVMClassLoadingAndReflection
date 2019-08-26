@@ -10,3 +10,8 @@ Obs: As classes core do java são carregadas pelo BootstrapLoader e estão no rt
 Posso tambem sobreescrever a localizacao das classes de bootstrap, para isso uso o comando abaixo:
 
 * java -cp <diretorio_que_ira_conter_os_arqs_compilados> -Xbootclasspath <diretorio_das_classes_a_serem_inicializadas_pelo_bootstrap_loader>
+
+* No modulo 3 definimos um jar de interfaces para ser carregado no classpath da aplicacao e um jar implementacoes para ser carregado pelo class loader declarado dentro do main. Segue o comando:
+	java -cp client.jar:interfaces.jar com.costalopes.Main
+
+

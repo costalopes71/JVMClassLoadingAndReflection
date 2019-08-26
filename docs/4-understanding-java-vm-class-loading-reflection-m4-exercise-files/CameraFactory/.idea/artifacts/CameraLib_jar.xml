@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CameraLib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CameraLib_jar</output-path>
+    <root id="archive" name="CameraLib.jar">
+      <element id="module-output" name="CameraLib" />
+    </root>
+  </artifact>
+</component>

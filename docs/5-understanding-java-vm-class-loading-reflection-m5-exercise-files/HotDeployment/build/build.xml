@@ -1,0 +1,45 @@
+<project name="Hot Deployment" default="build" basedir="..">
+
+  <!-- set global properties for this build -->
+  <property name="src" value="src" />
+  <property name="build" value="classes" />
+
+  <path id="project.class.path">
+    <pathelement location="${build}" />
+  </path>
+
+  <target name="prepare">
+    <tstamp/>
+    <!-- create the extra class directories because some labs copy to them -->
+    <property name="src1"  value="server" />
+    <property name="class1"  value="serverclass" />
+  </target>
+
+  <target name="buildmain" depends="prepare">
+    <mkdir dir="${build}" />
+    <javac srcdir="${src}" destdir="${build}" debug="on" classpathref="project.class.path" >
+    </javac>
+  </target>
+
+  <target name="buildalt1" depends="prepare" if="src1">
+    <mkdir dir="${class1}" />
+    <javac srcdir="${src1}" destdir="${class1}" debug="on" classpathref="project.class.path" >
+    </javac>
+  </target>
+
+  <target name="build" depends="buildmain, buildalt1">
+  </target>
+
+  <target name="run" depends="build">
+    <java classpathref="project.class.path" classname="com.pluralsight.Client" fork="yes"/>
+  </target>
+
+
+  <target name="clean" depends="prepare">
+    <delete dir="${class1}" />
+    <delete dir="${build}" />
+  </target>
+
+</project>
+  
+
