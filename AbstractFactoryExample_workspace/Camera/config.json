@@ -1,0 +1,4 @@
+{
+	"factoryType" : "com.costalopes.NikonCameraFactory",
+	"location" : "file:///../artifacts/cameralib.jar"
+}
